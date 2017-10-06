@@ -7,8 +7,7 @@ RUN         apt-get update && \
                 build-essential \
                 curl
 RUN         curl -sfL https://github.com/RedisLabsModules/rebloom/archive/v$VERSION.tar.gz | tar xz -C /
-RUN         cd rebloom-$VERSION && \
-            make
+RUN         make -C rebloom-$VERSION
 
 ###
 

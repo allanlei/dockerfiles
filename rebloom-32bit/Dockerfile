@@ -10,9 +10,8 @@ RUN         apt-get update && \
                 libc6-dev-i386 \
                 make
 RUN         curl -sfL https://github.com/RedisLabsModules/rebloom/archive/v$VERSION.tar.gz | tar xz -C /
-RUN         cd rebloom-$VERSION && \
-            export "CFLAGS=-m32" "SHOBJ_LDFLAGS=-m elf_i386 -shared -Bsymbolic -Bsymbolic-functions" && \
-            make
+RUN         export "CFLAGS=-m32" "SHOBJ_LDFLAGS=-m elf_i386 -shared -Bsymbolic -Bsymbolic-functions" && \
+            make -C rebloom-$VERSION
 
 ###
 
