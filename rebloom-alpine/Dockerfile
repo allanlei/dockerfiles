@@ -1,4 +1,4 @@
-FROM        redis:alpine
+FROM        redis:alpine as builder
 
 ARG         VERSION=1.0.0
 WORKDIR     /
