@@ -33,7 +33,7 @@ WORKDIR     /srv
 EXPOSE      80/tcp 443/tcp 2015/tcp
 
 ENTRYPOINT  ["caddy"]
-CMD         ["browse"]
+CMD         ["browse", "gzip"]
 
 RUN         apk --no-cache add --virtual .rundeps $rundeps
 COPY        --from=builder /go/bin/caddy /usr/bin/caddy
