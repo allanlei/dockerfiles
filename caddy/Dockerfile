@@ -1,6 +1,6 @@
 FROM        golang:1.9-alpine as builder
 
-ARG         version="0.10.9"
+ARG         version="0.10.8"
 ARG         plugins=""
 RUN         apk --no-cache add --virtual .build-deps \
                 build-base \
