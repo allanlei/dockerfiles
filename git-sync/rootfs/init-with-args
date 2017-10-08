@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ "${1:0:2}" = '--' ]; then
+  export ARGS="${@:2}"
+  set --
+fi
+exec /init "$@"

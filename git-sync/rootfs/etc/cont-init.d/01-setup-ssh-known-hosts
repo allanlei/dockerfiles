@@ -1,0 +1,4 @@
+#!/usr/bin/with-contenv sh
+touch ~/.ssh/known_hosts
+# ssh -q -o UserKnownHostsFile=$pathToSSHKnownHosts -i $pathToSSHSecret
+# ssh -q -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i $pathToSSHSecret
