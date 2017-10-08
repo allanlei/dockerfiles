@@ -1,17 +1,17 @@
 #!/usr/bin/with-contenv sh
+
 export REPO=$ARGS
-export BRANCH=master
-# echo "hello"
-# echo $ARGS
-# echo "ok"
+# export BRANCH=master
+mkdir -p /var/run/s6/container_environment
+printf "$REPO" > /var/run/s6/container_environment/REPO
 
 
-#!/bin/bash
-# Referenced and tweaked from http://stackoverflow.com/questions/6174220/parse-url-in-shell-script#6174447
 
-# proto="$(echo $1 | grep :// | sed -e's,^\(.*://\).*,\1,g')"
+# # Referenced and tweaked from http://stackoverflow.com/questions/6174220/parse-url-in-shell-script#6174447
+#
+# proto="$(echo $ARGS | grep :// | sed -e's,^\(.*://\).*,\1,g')"
 # # remove the protocol
-# url="$(echo ${1/$proto/})"
+# url="$(echo ${ARGS/$proto/})"
 # # extract the user (if any)
 # userpass="$(echo $url | grep @ | cut -d@ -f1)"
 # pass="$(echo $userpass | grep : | cut -d: -f2)"

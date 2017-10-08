@@ -12,15 +12,19 @@ FROM        alpine:3.6
 
 ENV         S6_BEHAVIOUR_IF_STAGE2_FAILS 2
 ENV         S6_CMD_WAIT_FOR_SERVICES 1
+# ENV         S6_KEEP_ENV 1
+# ENV         S6_CMD_ARG0 git-sync
+
 ENV         SCHEDULE="* * * * *"
+ENV         BRANCH=master
 
 RUN         apk --no-cache add --virtual .run-deps \
                 git \
                 openssh-client \
                 ca-certificates
 
-VOLUME      /root/.ssh
 WORKDIR     /data
+VOLUME      /data
 ENTRYPOINT  [ "/init-with-args" ]
 
 COPY        --from=builder / /

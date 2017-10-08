@@ -1,0 +1,3 @@
+#!/usr/bin/with-contenv sh
+
+git clone -b $BRANCH --single-branch --depth 1 $REPO /data
