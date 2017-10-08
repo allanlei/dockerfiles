@@ -25,12 +25,15 @@ RUN         cd $GOPATH/src/github.com/mholt/caddy/caddy && \
 
 ###
 
-FROM        busybox
+FROM        alpine
 
+ARG         rundeps=""
 VOLUME      /root/.caddy /srv
 WORKDIR     /srv
 EXPOSE      80/tcp 443/tcp 2015/tcp
 
 ENTRYPOINT  ["caddy"]
+CMD         ["browse"]
 
+RUN         apk --no-cache add --virtual .rundeps $rundeps
 COPY        --from=builder /go/bin/caddy /usr/bin/caddy
