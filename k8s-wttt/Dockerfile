@@ -19,7 +19,7 @@ FROM        alpine:3.7 as s6-overlay-builder
 ENV         VERSION=1.18.1.5
 
 RUN         mkdir -p /rootfs && \
-            wget -q https://github.com/just-containers/s6-overlay/releases/download/v$VERSION/s6-overlay-amd64.tar.gz -O - | tar xz -C /rootfs && \
+            wget -q https://github.com/just-containers/s6-overlay/releases/download/v$VERSION/s6-overlay-amd64.tar.gz -O - | tar xz -C /rootfs
 
 ###
 
