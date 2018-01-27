@@ -1,6 +1,6 @@
 FROM        alpine:3.7 as incron-builder
 
-ARG         VERSION=0.5.12
+ENV         VERSION=0.5.12
 
 RUN         apk --no-cache add --virtual .build-deps \
                 build-base \
@@ -16,7 +16,7 @@ RUN         apk --no-cache add --virtual .build-deps \
 
 FROM        alpine:3.7 as s6-overlay-builder
 
-ARG         VERSION=1.18.1.5
+ENV         VERSION=1.18.1.5
 
 RUN         mkdir -p /rootfs && \
             wget -q https://github.com/just-containers/s6-overlay/releases/download/v$VERSION/s6-overlay-amd64.tar.gz -O - | tar xz -C /rootfs && \
