@@ -1,6 +1,6 @@
 FROM        redis:alpine as builder
 
-ARG         VERSION=1.0.0
+ARG         VERSION=1.1.0
 WORKDIR     /
 RUN         apk --no-cache add --virtual .build-deps \
                 build-base \
